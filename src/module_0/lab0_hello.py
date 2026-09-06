@@ -1,1 +1,2 @@
-# Refer to this module's readme
+print ("Hello, world!")
+print ("This is CS50P")
