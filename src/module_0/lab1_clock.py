@@ -1,4 +1,6 @@
-time = 1741604400
-time = time + 60
+def main():
+    time = 1741604400
+    time = time + 60
+    print(time)
 
-print (time)
+main()
