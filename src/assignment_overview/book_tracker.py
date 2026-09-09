@@ -5,7 +5,7 @@ def dashboard():
     40 '='
     """
     print("=" * 40)
-    print("    YOUR LIBRARY")
+    print("📚   YOUR LIBRARY")
     print("=" * 40)
 
 
