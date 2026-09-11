@@ -20,7 +20,7 @@ def main ():
 
         
 def recomend (game):
-    print ("you might like", game)
+    print ("You might like", game)
 
 
 main()
