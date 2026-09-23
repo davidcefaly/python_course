@@ -5,7 +5,7 @@ def main():
 
 def get_pace(miles, minutes):
     if not minutes > 0:
-        raise ValueError("Minutes must be greater then 0.")
+        raise ValueError("Minutes must be greater than 0.")
     return minutes / miles
 
 

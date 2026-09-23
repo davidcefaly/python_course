@@ -20,7 +20,7 @@ def main():
         return
 
     m = convert(au)
-    print(f"{m} m away")
+    print(f"{m} m")
 
 
 def convert(au):
