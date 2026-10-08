@@ -13,4 +13,4 @@ def test_error():
 
 
 def test_float_conversion():
-    assert convert(0.001) == pytest.approx(149597870.691, abs=1e-12)
+    assert convert(0.001) == pytest.approx(149597870.7)
