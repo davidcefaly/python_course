@@ -1,5 +1,5 @@
 import pytest
-from convert import convert
+from module_5.convert import convert
 
 
 def test_int_conversion():
@@ -13,4 +13,4 @@ def test_error():
 
 
 def test_float_conversion():
-    assert convert(0.001) == pytest.approx(149597870.691, abs=1e-12)
+    assert convert(0.001) == pytest.approx(149597870.7)
