@@ -1,3 +1,6 @@
+import csv
+
+
 def dashboard():
     """Prints
     40 '='
@@ -32,10 +35,12 @@ def show_menu():
 
 def add_book(library):
     """
+
     This function takes in user input for title, author, and page count.
     Create a variable called hours that calls the function estimate_reading_time.
     Stores the book as a dictionary and adds it to the library list.
     """
+
     title = input("Book title: ").title()
     author = input("Author: ")
     pages = int(input("Page count: "))
@@ -49,10 +54,35 @@ def add_book(library):
     }
     library.append(book)
 
+    with open("books.csv", "a") as file:
+        writer = csv.DictWriter(file, fieldnames=["title", "author", "pages", "hours"])
+        writer.writerow(book)
+
     print()
     print("Book added:")
     print()
     print(f"  '{title}' by {author} -- approx. {hours} hours to read")
+
+
+def load_books():
+    """Reads every book saved in books.csv and returns them as a list"""
+    library = []
+    with open("books.csv") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            book = {
+                "title": row["title"],
+                "author": row["author"],
+                "pages": int(row["pages"]),
+                "hours": float(row["hours"]),
+            }
+            library.append(book)
+    return library
+
+
+def format_book(book, number):
+    """Returns one book as a numbered line of text"""
+    return f"{number}. '{book['title']}' - {book['author']} ({book['pages']} pages - approx. {book['hours']} hours to read)"
 
 
 def view_books(library):
@@ -62,12 +92,11 @@ def view_books(library):
         print("Your library is empty. Add a book first!")
     else:
         for i in range(len(library)):
-            book = library[i]
-            print(f"{i + 1}. '{book['title']}' - {book['author']} ({book['pages']} pages - approx. {book['hours']} hours to read)")
+            print(format_book(library[i], i + 1))
 
 
 def main():
-    library = []
+    library = load_books()
     dashboard()
 
     while True:
