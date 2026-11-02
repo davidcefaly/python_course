@@ -11,7 +11,7 @@ def main():
         country_code = match.group("country_code")
         print(locations[country_code])
     else:
-        print("Invalid")
+        print("Unknown")
 
 
 main()
